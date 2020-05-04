@@ -30,7 +30,7 @@ class App
       p "--" * 10
       p [line[:ts], msg[PREFIX_LENGTH..-1]].join(' ')
       p "--" * 10
-      Writer.instance.write([line[:ts], msg[PREFIX_LENGTH..-1]].join(' ')) # WRITER_LIB
+      Writer.instance.write([line[:ts], msg[PREFIX_LENGTH..-1]].join('')) # WRITER_LIB
     end
 
   rescue Exception
