@@ -27,9 +27,6 @@ class App
     lines.each do |line|
       msg = line[:msg]
       next unless msg.start_with?(PREFIX)
-      p "--" * 10
-      p [line[:ts], msg[PREFIX_LENGTH..-1]].join(' ')
-      p "--" * 10
       Writer.instance.write([line[:ts], msg[PREFIX_LENGTH..-1]].join('')) # WRITER_LIB
     end
 
