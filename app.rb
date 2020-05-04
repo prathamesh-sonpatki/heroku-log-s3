@@ -24,8 +24,10 @@ class App
       HerokuLogParser.parse(env['rack.input'].read).collect {|m| m[:message] }
     end
 
+    puts "------" * 10
     puts lines
-  
+    puts "------" * 10
+
     lines.each do |line|
       next unless line.start_with?(PREFIX)
       Writer.instance.write(line[PREFIX_LENGTH..-1]) # WRITER_LIB
@@ -36,7 +38,7 @@ class App
     @logger.error $@
 
   ensure
-    return [200, { 'Content-Length' => '0' }, []]
+    return [200, { 'Content-Length' => '0' }, ["test"]]
   end
 
 end
