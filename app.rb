@@ -28,9 +28,9 @@ class App
       msg = line[:msg]
       next unless msg.start_with?(PREFIX)
       p "--" * 10
-      p [ts, msg[PREFIX_LENGTH..-1]].join(' ')
+      p [line[:ts], msg[PREFIX_LENGTH..-1]].join(' ')
       p "--" * 10
-      Writer.instance.write([ts, msg[PREFIX_LENGTH..-1]].join(' ')) # WRITER_LIB
+      Writer.instance.write([line[:ts], msg[PREFIX_LENGTH..-1]].join(' ')) # WRITER_LIB
     end
 
   rescue Exception
