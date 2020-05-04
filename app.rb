@@ -24,6 +24,8 @@ class App
       HerokuLogParser.parse(env['rack.input'].read).collect {|m| m[:message] }
     end
 
+    puts lines
+  
     lines.each do |line|
       next unless line.start_with?(PREFIX)
       Writer.instance.write(line[PREFIX_LENGTH..-1]) # WRITER_LIB
